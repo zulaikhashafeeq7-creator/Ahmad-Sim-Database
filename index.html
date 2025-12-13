@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SIM DB BY AHMAD MALIK</title>
+  <meta name="description" content="MAFIA SIM Database and CNIC Verification" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <style>
+
+    /* ===== THEME VARIABLES ===== */
+:root {
+  --bg-dark: #00FF00;
+  --bg-light: #00FF00;
+  --card-dark: rgba(255,255,255,.04);
+  --card-light: #FF073A;
+  --text-dark: #00FFAA;
+  --text-light: #FF073A;
+  --muted-dark: #A0B3;
+  --muted-light: #65676B;
+  --primary: #00FF41; 
+  --secondary: #FF073A;/* Text glow with Green + Red */
+color: #00FF00;
+text-shadow: 
+  0 0 5px #00FF00,
+  0 0 10px #FF073A,
+  0 0 20px #00FF00,
+  0 0 30px #FF073A;
+
+/* Box glow example */
+box-shadow:
+  0 0 10px #00FF00,
+  0 0 20px #FF073A,
+  0 0 40px #00FF00,
+  0 0 60px #FF073A;
+; 
+
+  --stroke-dark: rgba(255,255,255,.1);
+  --stroke-light: #CED0D4;
+  --shadow-dark: 0 4px 12px rgba(0,0,0,.3);
+  --shadow-light: 0 4px 12px rgba(0,0,0,.1);
+  --ring: 0 0 0 2px rgba(255, 140, 0, .4), 0 0 16px rgba(255, 140, 0, .2);
+}
+/* Text glow with Green + Red */
+color: #00FF00;
+text-shadow: 
+  0 0 5px #00FF00,
+  0 0 10px #FF073A,
+  0 0 20px #00FF00,
+  0 0 30px #FF073A;
+
+/* Box glow example */
+box-shadow:
+  0 0 10px #00FF00,
+  0 0 20px #FF073A,
+  0 0 40px #00FF00,
+  0 0 60px #FF073A;
+ 
+    html[data-theme='light']{
+      --bg: var(--bg-light);
+      --card-bg: var(--card-light);
+      --text-color: var(--text-light);
+      --muted-color: var(--muted-light);
+      --stroke-color: var(--stroke-light);
+      --shadow: var(---light);
+    }
+    html[data-theme='green    '] {
+      --bg: var(--bg-dark);
+      --card-bg: var(--card-dark);
+      --text-color: var(--text-pink);
+      --muted-color: var(--muted-dark);
+      --stroke-color: var(--stroke-dark);
+      --shadow: var(--shadow-dark);
+    }
+
+/* ------------------------------------------------
+      FULL DARK CYBER HACKER BACKGROUND (FINAL)
+-------------------------------------------------*/
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #000000;
+    overflow-x: hidden;
+    font-family: 'Orbitron', sans-serif;
+    color: #eaffff;
+}
+
+/* Animated Cyber Gradient Background */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center,
+    rgba(0, 255, 120, 0.1),
+    rgba(0, 0, 0, 1));
+    z-index: -3;
+    animation: cyberGlow 8s infinite alternate ease-in-out;
+}
+
+@keyframes cyberGlow {
+    0% { filter: blur(20px) brightness(0.8); }
+    100% { filter: blur(35px) brightness(1.3); }
+}
+
+/* Floating Matrix Particles */
+body::after {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://ibb.co/Q3XjhFKR");
+    background-size: cover;
+    opacity: 0.15;
+    animation: matrixFlow 30s linear infinite;
+    z-index: -2;
+}
+
+@keyframes matrixFlow {
+    0% { transform: translateY(-10%); }
+    100% { transform: translateY(10%); }
+}
+
+/* -----------------------------------------
+   GLOBAL NEON CYBER COLORS & GLOW
+------------------------------------------*/
+
+:root {
+    --neon-green: #00ff9d;
+    --neon-red: #ff0048;
+    --neon-blue: #00c8ff;
+    --neon-purple: #b300ff;
+    --text-light: #eaffff;
+}
+
+/* All headings glow */
+h1, h2, h3 {
+    text-shadow: 0 0 12px var(--neon-green),
+                 0 0 25px var(--neon-green);
+}
+
+/* Boxes glow */
+.map-item, .search-container, .result-card {
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid #00ff9955;
+    box-shadow: 0 0 20px #00ff9955;
+    backdrop-filter: blur(5px);
+}
+
+/* Input cyber style */
+#cnicInput {
+    background: rgba(0, 20, 20, 0.8);
+    color: var(--neon-green);
+    border: 1px solid var(--neon-green);
+    box-shadow: 0 0 15px var(--neon-green);
+}
+
+/* Neon Buttons */
+button, .search-btn, .popup-btn {
+    font-weight: bold;
+    letter-spacing: 1px;
+    transform: perspective(150px) translateZ(0);
+}
+
+.search-btn {
+    background: var(--neon-red);
+    color: white;
+    box-shadow: 0 0 22px var(--neon-red);
+}
+
+.search-btn:hover {
+    box-shadow: 0 0 35px var(--neon-red);
+}
+
+.popup-btn.confirm {
+    background: var(--neon-blue);
+    box-shadow: 0 0 22px var(--neon-blue);
+}
+
+.popup-btn.cancel {
+    background: var(--neon-red);
+    box-shadow: 0 0 22px var(--neon-red);
+}
+
+/* Popup Cyber Box */
+.popup {
+    background: rgba(5, 0, 15, 0.95);
+    border: 2px solid var(--neon-purple);
+    box-shadow: 0 0 30px var(--neon-purple);
+}
+
+/* Footer Glow */
+footer {
+    color: var(--neon-green) !important;
+    text-shadow: 0 0 10px var(--neon-green);
+}
+/* HACKER MATRIX MOTION */
+@keyframes cyberBG {
+  0% {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  100% {
+    background-position:
+      0 0,
+      0 0,
+      0 -600px; /* Green cyber scanning motion */
+  }
+}
+
+/* Optional glowing grid overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+      linear-gradient(rgba(0,255,90,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,255,90,0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: -1;
+  animation: gridGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes gridGlow {
+  0% { opacity: 0.15; }
+  100% { opacity: 0.40; }
+}
+    /* ===== GENERAL STYLES ===== */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%; transition: background-color .3s, color .3s;}
+    body{
+      font-family:'Poppins',system-ui,sans-serif;
+      background:var(--bg);
+      color:var(--text-color);
+      overflow-x:hidden
+    }
+    a{color:inherit; text-decoration: none;}
+/* ==== DARK CYBER HACKER BACKGROUND ==== */
+body {
+  background: #000; 
+  background-image:
+      radial-gradient(circle at 20% 20%, rgba(0,255,170,0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(0,255,255,0.15) 0%, transparent 50%),
+      repeating-linear-gradient(0deg,
+          rgba(0,255,120,0.12) 0px,
+          rgba(0,255,120,0.12) 1px,
+          transparent 2px,
+          transparent 4px
+      );
+  color: var(--text-color);
+  overflow-x: hidden;
+  animation: cyberBG 12s linear infinite;
+}
+
+/* HACKER MATRIX MOTION */
+@keyframes cyberBG {
+  0% {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  100% {
+    background-position:
+      0 0,
+      0 0,
+      0 -600px; /* Green cyber scanning motion */
+  }
+}
+
+/* Optional glowing grid overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+      linear-gradient(rgba(0,255,90,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,255,90,0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: -1;
+  animation: gridGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes gridGlow {
+  0% { opacity: 0.15; }
+  100% { opacity: 0.40; }
+}
+
+    /* ===== POPUP STYLES ===== */
+    .popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(5px);z-index:2000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s, visibility .3s}
+    .popup-overlay.show{opacity:1;visibility:visible}
+    .popup-content{background:var(--card-bg);border:1px solid var(--primary);border-radius:12px;padding:30px;width:90%;max-width:400px;text-align:center;box-shadow:0 0 30px rgba(255,140,0,.45);transform:scale(.9);transition:transform .3s}
+    .popup-overlay.show .popup-content{transform:scale(1)}
+    .popup-content h3{font-size:1.5rem;color:var(--primary);margin-bottom:10px}
+    .popup-content p{color:var(--muted-color);margin-bottom:20px}
+    .popup-buttons{display:flex;gap:10px;justify-content:center}
+    .popup-btn{border:none;border-radius:8px;padding:10px 20px;font-weight:600;cursor:pointer;transition:.2s}
+    .popup-btn.join{background:var(--primary);color:#ffff}
+    .popup-btn.join:hover{opacity:.9}
+    .popup-btn.cancel{background:var(--stroke-color);color:var(--text-color)}
+    
+    /* ===== NAVIGATION ===== */
+    .navbar{display:flex;justify-content:space-between;align-items:center;padding:15px 20px;position:absolute;top:0;left:0;right:0;z-index:100}
+    .nav-toggle{background:none;border:none;cursor:pointer;font-size:1.8rem;color:var(--primary)}
+    .theme-switch{display:flex;align-items:center;gap:10px;color:var(--muted-color)}
+    #theme-toggle{opacity:0;position:absolute}
+    .slider{display:inline-block;width:40px;height:20px;background-color:var(--muted-color);border-radius:20px;position:relative;cursor:pointer;transition:background-color .3s}
+    .slider::before{content:'';position:absolute;height:14px;width:14px;left:3px;bottom:3px;background-color:#fff;border-radius:50%;transition:.3s}
+    #theme-toggle:checked + .slider{background-color:var(--primary)}
+    #theme-toggle:checked + .slider::before{transform:translateX(20px)}
+    
+    .nav-menu{position:fixed;top:0;left:-100%;width:280px;height:100%;background:var(--bg);z-index:1000;box-shadow:var(--shadow);transition:left .3s ease;display:flex;flex-direction:column;padding:20px}
+    .nav-menu.active{left:0}
+    .nav-menu-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:1px solid var(--stroke-color)}
+    .nav-close{background:none;border:none;cursor:pointer;font-size:1.8rem;color:var(--primary)}
+    .nav-links{list-style:none;margin-top:30px}
+    .nav-links a{display:block;padding:15px 20px;color:var(--text-color);font-weight:500;border-radius:8px;transition:background-color .2s, color .2s}
+    .nav-links a:hover{background-color:var(--primary);color: #fff;}
+    .nav-links i{margin-right:15px;width:20px}
+
+    /* ===== LAYOUT & HEADERS ===== */
+    .container{max-width:800px;margin:0 auto;padding:100px 18px 80px}
+    header{text-align:center;margin-bottom:30px;display:flex;align-items:center;justify-content:center;gap:15px}
+    .logo-img{height: clamp(40px, 10vw, 60px); width: auto;}
+    .brand-title{
+      font-family: 'Orbitron', sans-serif; 
+      font-weight: 700; 
+      font-size: clamp(28px, 8vw, 52px); 
+      color: var(--primary);
+      letter-spacing: 1.5px;
+      text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+    }
+    .subtitle {
+      margin-top:5px; 
+      font-weight:500; 
+      letter-spacing:3px; 
+      text-transform:uppercase; 
+      font-size:.8rem; 
+      color:var(--muted-color);
+    }
+
+    /* ===== CARD / BOX STYLING ===== */
+    .card{
+      position:relative;border-radius:12px;padding:25px;
+      background:var(--card-bg);
+      border:1px solid var(--stroke-color); box-shadow: var(--shadow);
+      display: flex; flex-direction: column;
+    }
+    .card h2{
+      font-family:'Poppins',sans-serif; font-size:1.2rem; letter-spacing:1px; text-transform:uppercase; text-align:center; color:var(--primary);
+      margin-bottom: 15px;
+    }
+    .card .hr{width:50px;height:2px;margin:0 auto 20px;background:var(--secondary); filter:drop-shadow(0 0 5px rgba(0, 86, 179, 0.45))}
+
+    /* ===== FORM & INPUTS ===== */
+    .form{display:grid; gap:15px; margin-top:0}
+    
+    .search-type { display: flex; gap: 25px; justify-content: center; margin-bottom: 10px; }
+    .search-type label { display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--muted-color); font-size: 0.95rem; }
+    .search-type input[type="radio"] { 
+        appearance: none; -webkit-appearance: none; width: 18px; height: 18px; 
+        border: 2px solid var(--muted-color); border-radius: 50%; position: relative; cursor: pointer; transition: all .2s; 
+    }
+    .search-type input[type="radio"]:checked { border-color: var(--primary); }
+    .search-type input[type="radio"]:checked::after { 
+        content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); 
+        width: 10px; height: 10px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 6px var(--primary); 
+    }
+
+    .input-wrap{position:relative}
+    .input-wrap i{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--primary); font-size: 1.1rem;}
+    input#searchInput{
+      width:100%;padding:15px 15px 15px 40px;border-radius:8px;border:1px solid var(--secondary);
+      background:rgba(0,0,0,.05);color:var(--text-color);font-size:1rem;letter-spacing:.5px;outline:none;
+      transition:.25s;font-family:'Poppins',sans-serif;text-align:left;
+    }
+    html[data-theme='light'] input#searchInput { background: rgba(0,0,0,.05); }
+    html[data-theme='dark'] input#searchInput { background: rgba(255,255,255,.05); }
+
+    input#searchInput:focus{box-shadow:var(--ring);border-color:var(--primary)}
+    .input-guidance{font-size: .8rem; text-align: center; color: var(--muted-color); margin-top: 8px; opacity: 0.8;}
+    .btn{
+      border:none;border-radius:8px;cursor:pointer;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px;width:100%;
+      background:linear-gradient(90deg,var(--secondary),var(--primary));
+      color:#fff; 
+      box-shadow:0 8px 20px rgba(255,140,0,.3);
+      transition:transform .1s ease, box-shadow .2s ease
+    }
+    .btn:hover{transform:translateY(-1px); box-shadow: 0 10px 25px rgba(255,140,0,.4)}
+
+    /* ===== SOCIAL ICONS ===== */
+    .social-icons {display: flex; justify-content: center; gap: 14px; margin-top: 20px;}
+    .social-icon {width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--text-color); transition: all 0.2s ease; background: var(--card-bg); border: 1px solid var(--stroke-color);}
+    .social-icon:hover { background: var(--primary); color: #fff; }
+
+    /* ===== RESULT (VIP BOX STYLE) ===== */
+    #result{margin-top:30px; display:none}
+    #result.show{display:block}
+    .result-header{padding: 12px 15px; border-bottom:1px solid var(--primary); margin-bottom: 20px; font-family:'Poppins',sans-serif; font-size:1rem; color: var(--text-color); font-weight: 600; display: flex; justify-content: space-between; align-items: center;}
+    .result-count{background: var(--primary); color:var(--bg-dark); padding: 2px 8px; font-size: .75rem; border-radius: 15px; font-weight: 700;}
+    
+    .records-container {
+        display: grid;
+        gap: 20px;
+    }
+    .record-card {
+        background: var(--card-bg);
+        border: 1px solid var(--stroke-color);
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: var(--shadow);
+    }
+    .vip-boxes-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+    .vip-box{
+        background: var(--bg);
+        border-left: 4px solid var(--primary);
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .vip-box .label{
+        font-weight: 600;
+        color: var(--primary);
+        font-size: .8rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .vip-box .value{
+        color: var(--text-color);
+        font-size: 1rem;
+        word-break: break-word;
+    }
+
+    .msg{padding:20px;text-align:center;font-family:'Poppins',sans-serif}
+    .msg.loading{color:var(--primary)}
+    .msg.error{color:#00FF00}
+
+    /* ===== FOOTER ===== */
+    footer{text-align:center; padding: 20px; margin-top: 30px; color: var(--muted-color); font-size: 0.9rem;}
+    .footer-links{margin-bottom: 10px;}
+    .footer-links a{margin: 0 10px; transition: color .2s;}
+    .footer-links a:hover{color: var(--primary);}
+  </style>
+</head>
+<body data-theme="dark">
+
+  <!-- ===== WhatsApp Channel Popup ===== -->
+  <div class="popup-overlay" id="channelPopup">
+    <div class="popup-content">
+      <h2>Join Our Channel</h2>
+      <p>STAY UPDATED WITH THE LATEST NEWS AND SERVICES BY JOINING OUR YOUTUBE  CHANNEL CHANNEL KO SUBSCRIBE ☺️ KAR DO FREE HAKING COURSE POST HOTI HA.</p>
+      <div class="popup-buttons">
+        <button class="popup-btn cancel" id="cancelPopup"
+        <li><a href="https://www.youtube.com/@Tips-And-Tricks-With-Ahmad" target="_blank"><i class="fab fa-youtube"></i>CLICK 🫥 YOUTUBE HACKER COURSE FREE</a></li>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Navigation Menu ===== -->
+  <nav class="navbar">
+    <button class="nav-toggle" id="nav-toggle-btn" aria-label="Menu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="theme-switch">
+      <i class="fa-solid fa-sun"></i>
+      <label for="theme-toggle">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider"></span>
+      </label>
+      <i class="fa-solid fa-moon"></i>
+    </div>
+  </nav>
+
+  <div class="nav-menu" id="nav-menu">
+    <div class="nav-menu-header">
+      <h3 style="color:var(--primary)">HACKING FREE JOIN</h3>
+      <button class="nav-close" id="nav-close-btn" aria-label="Close menu">
+        <i class="fa-solid fa-times"></i>
+      </button>
+    </div>
+    <ul class="nav-links">
+      <li><a href="https://www.youtube.com/@Tips-And-Tricks-With-Ahmad" target="_blank"><i class="fab fa-youtube"></i> youtube</a></li>
+      <li><a href="https://wa.me/923164617375" target="_blank"><i class="fab fa-whatsapp"></i> Contact</a></li>
+      <li><a href="https://whatsapp.com/channel/0029VbBYfywDzgTJb8OFtG0e" target="_blank"><i class="fa-solid fa-bullhorn"></i> Channel</a></li>
+      <li><a href="https://whatsapp.com/channel/0029VbBYfywDzgTJb8OFtG0e target="_blank"><i class="fa-solid fa-bullhorn"></i> Channel</a></li>
+      <li><a href="https://t.me/iTz_AhMaD_Offical" target="_blank"><i class="fab fa-telegram"></i> Telegram</a></li>
+      <li><a href="https://www.youtube.com/@Tips-And-Tricks-With-Ahmad=DTVXsf3paZuWKTNf" target="_blank"><i class="fab fa-youtube"></i> youtube</a></li>
+      <li><a href="https://chat.whatsapp.com/JCJEOChC0ZPHHN0NQhpihs" target="_blank"><i class="fa-solid fa-bullhorn"></i> group</a></li>
+    </ul>
+  </div>
+
+  <!-- ===== Main Content ===== -->
+  <div class="container">
+    <header>
+      <img src="<a href="https://i.ibb.co/JW17GMD7/Screenshot-20251018-200251-2.jpg" alt="Logo" class="logo-img"> <!-- Random Logo URL -->
+      <div>
+        <div class="brand-title">AHMAD TECH SIM DB</div>
+        <div class="subtitle">SIM DATABASE</div>
+      </div>
+    </header>
+
+    <div class="main-grid">
+      <section class="card" id="searchCard">
+        <h2>☠️SEARCH🔍 REACORD☠️</h2>
+        <div class="hr"></div>
+        <form id="form" class="form" autocomplete="off">
+          
+          <div class="search-type">
+            <label>
+              <input type="radio" name="search_type" value="phone" checked> ☠️Phone☠️
+            </label>
+            <label>
+              <input type="radio" name="search_type" value="cnic"> ☠️CNIC☠️
+            </label>
+          </div>
+
+          <div class="input-wrap">
+            <i class="fa-solid fa-mobile-screen"></i>
+            <input id="searchInput" inputmode="tel" placeholder="Enter number without +92 (e.g. 03
+            164617375)" maxlength="11" />
+          </div>
+          <p class="input-guidance">Enter valid Pakistani number e.g. 03164000786</p>
+          <button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search❤️‍🩹</button>
+        </form>
+        <div class="social-icons">
+          <a href="https://wa.me/923164617375" target="_blank" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://t.me/ITz_AhMaD_Malik" target="_blank" class="social-icon" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+          <a href="ahmadkhansolangi12@gmail.com" class="social-icon" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+        
+        <div id="result"></div>
+        
+      </section>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <span>|</span>
+        <a href="#">Terms of Service</a>
+    </div>
+    <p>𝐌ᴀғɪᴀ 𝐓ᴀᴄʜ𝗫 | مــــــــــا فیــــــــِـــــا احــــــــــمــــــــــد</p>
+  </footer>
+
+  <script>
+    // ===== POPUP LOGIC =====
+    (function ChannelPopup() {
+      const popup = document.getElementById('channelPopup');
+      const cancelBtn = document.getElementById('cancelPopup');
+      const alreadyShown = sessionStorage.getItem('popupShown');
+
+      if (!alreadyShown) {
+        setTimeout(() => {
+          popup.classList.add('show');
+        }, 1500);
+      }
+
+      cancelBtn.addEventListener('click', () => {
+        popup.classList.remove('show');
+        sessionStorage.setItem('popupShown', 'true');
+      });
+    })();
+
+    // ===== THEME & NAVIGATION LOGIC =====
+    (function UILogic() {
+      const themeToggle = document.getElementById('theme-toggle');
+      const navToggleBtn = document.getElementById('nav-toggle-btn');
+      const navCloseBtn = document.getElementById('nav-close-btn');
+      const navMenu = document.getElementById('nav-menu');
+
+      // Theme
+      const currentTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', currentTheme);
+      themeToggle.checked = currentTheme === 'light';
+
+      themeToggle.addEventListener('change', () => {
+        const newTheme = themeToggle.checked ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+      });
+
+      // Navigation
+      navToggleBtn.addEventListener('click', () => navMenu.classList.add('active'));
+      navCloseBtn.addEventListener('click', () => navMenu.classList.remove('active'));
+    })();
+
+    // ===== DATA FETCH + UX LOGIC =====
+    (function Data(){
+      const form = document.getElementById('form');
+      const resultDiv = document.getElementById('result');
+      const searchInput = document.getElementById('searchInput');
+      const searchTypeRadios = document.querySelectorAll('input[name="search_type"]');
+      const guidanceText = document.querySelector('.input-guidance');
+
+      const PROXY_URL = 'https://solo.f-a-k.workers.dev/'; 
+      const API_BASE_URL = 'https://fam-official.serv00.net/api/database.php';
+      
+      function updateInputUI(type) {
+        const icon = document.querySelector('.input-wrap i');
+        if (type === 'phone') {
+          searchInput.placeholder = 'Enter number without +92 (e.g. 03131613251)';
+          searchInput.maxLength = 11;
+          searchInput.inputMode = 'tel';
+          icon.className = 'fa-solid fa-mobile-screen';
+          guidanceText.textContent = 'Enter valid Pakistani number e.g. ☠️03131613251☠️';
+        } else {
+          searchInput.placeholder = 'Enter CNIC without dashes (e.g. 32402628000)';
+          searchInput.maxLength = 13;
+          searchInput.inputMode = 'numeric';
+          icon.className = 'fa-solid fa-id-card';
+          guidanceText.textContent = 'Enter a valid 13-digit CNIC without dashes.';
+        }
+        searchInput.value = '';
+      }
+
+      updateInputUI('phone');
+
+      searchTypeRadios.forEach(radio => {
+        radio.addEventListener('change', (event) => updateInputUI(event.target.value));
+      });
+
+      function show(html){ 
+        resultDiv.innerHTML = html;
+        resultDiv.classList.add('show');
+      }
+
+      function formatKey(key) {
+        return key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+      }
+
+      function showError(message) {
+        show(`<div class="msg error"><i class="fas fa-exclamation-triangle" style="font-size:1.4em;margin-bottom:8px"></i><p>${message}</p></div>`);
+      }
+
+      function showPremiumContact(num) {
+        const whatsappUrl = `https://wa.me/923164617375?text=${encodeURIComponent(`I need premium data for: ${num}`)}`;
+        const html = `
+          <div class="msg error" style="padding: 25px; background: var(--bg); border-radius: 8px;">
+              <i class="fas fa-exclamation-triangle" style="font-size:1.6em; margin-bottom:12px;"></i>
+              <p style="font-size: 1.1rem; color: var(--text-color);">Data Not Available in Free Search</p>
+              <p style="color: var(--muted-color); font-size: 0.95rem; margin-top: 8px; max-width: 400px; margin: 8px auto 0;">
+                  This information is protected. For access, please contact the admin for premium services.
+              </p>
+              <a href="https://WA.me/923164617375" target="_blank" class="btn" style="margin-top:20px; max-width:250px; margin-left:auto; margin-right:auto;">
+                  <i class="fab fa-whatsapp"></i> Contact Admin
+              </a>
+          </div>`;
+        show(html);
+      }
+
+      async function fetchData(query) {
+        show(`<div class="msg loading"><i class="fas fa-circle-notch fa-spin"></i><p>ACCESSING DATABASE...</p></div>`);
+        
+        try {
+          const targetApiUrl = `${API_BASE_URL}?number=${query}`;
+          const finalUrlToFetch = `${PROXY_URL}?url=${encodeURIComponent(targetApiUrl)}`;
+          const response = await fetch(finalUrlToFetch);
+
+          if (!response.ok) throw new Error(`Server responded with status: ${response.status}`);
+
+          const result = await response.json();
+
+          if (result.success && result.data && result.data.length > 0) {
+              displayResults(result.data);
+          } else {
+              showPremiumContact(query);
+          }
+        } catch (error) {
+          console.error("Fetch error:", error);
+          showError(`An error occurred: ${error.message}. Please try again.`);
+        }
+      }
+
+      function displayResults(records) {
+        let recordsHtml = '';
+        records.forEach(record => {
+            let boxesHtml = '';
+            // Define the order and check for existence
+            const keys_order = ['name', 'father_name', 'number', 'cnic', 'address']; 
+            
+            keys_order.forEach(key => {
+                if (record[key]) { // Only create a box if data exists for that key
+                    const value = record[key] || 'N/A';
+                    boxesHtml += `
+                        <div class="vip-box">
+                            <span class="label">${formatKey(key)}</span>
+                            <span class="value">${value}</span>
+                        </div>
+                    `;
+                }
+            });
+
+            recordsHtml += `
+                <div class="record-card">
+                    <div class="vip-boxes-grid">${boxesHtml}</div>
+                </div>
+            `;
+        });
+        
+        const html = `
+            <div class="result-header">
+              <span>☠️Search Results☠️</span>
+              <span class="result-count">${records.length} ${records.length === 1 ? 'Record' : 'Records'} Found</span>
+            </div>
+            <div class="records-container">${recordsHtml}</div>`;
+        show(html);
+      }
+      
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const query = searchInput.value.trim();
+        const selectedType = document.querySelector('input[name="search_type"]:checked').value;
+        
+        if (selectedType === 'phone' && !/^\d{11}$/.test(query)) {
+          showError("Please enter a valid 11-digit Pakistani number (e.g., 03131613251)");
+          return;
+        } else if (selectedType === 'cnic' && !/^\d{13}$/.test(query)) {
+          showError("Please enter a valid 13-digit CNIC without dashes (e.g., 326200000000)");
+          return;
+        }
+
+        fetchData(query);
+      });
+    })();
+  </script>
+</body>
+</html>
